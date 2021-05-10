@@ -15,6 +15,7 @@ body,
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
+  position: relative;
 }
 
 .wrapper {
@@ -116,6 +117,41 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+card {
+  height: fit-content;
+  width: 300px;
+  position: absolute;
+  top: 190px;
+  margin-left: 50%;
+  left: -150px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  color: hsl(206, 17%, 28%);
+  padding: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.passlength{
+  width: 300px;
+  left: -150px;
+  display: none;
+}
+
+.passCriteria {
+  width: 400px;
+  top: 190px;
+  left: -200px;
+  display: none;
+}
+
+.critBox {
+  width: 200px;
 }
 
 @media (max-width: 690px) {

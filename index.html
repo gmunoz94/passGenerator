@@ -29,6 +29,25 @@
         </div>
       </div>
     </div>
+    <article class="prompts">
+      <card class="passlength">
+        <h3>How many characters will your password be?</h2>
+        <input type="text" id="passLength" name="passLength"><br>
+        <button id="lenSelect" class="btn">Confirm</button>
+      </card>
+      <card class="passCriteria">
+        <h3>Which characters do you want in you Password?</h3>
+        
+        <article class="critBox">
+          <input type="checkbox" id="upperCrit" name="UpperCase" value="upperCase"><span>Upper Case Letters</span><br>
+          <input type="checkbox" id="lowerCrit" name="LowerCase" value="lowerCase"><span>Lower Case Letters</span><br>
+          <input type="checkbox" id="numCrit" name="NumCase" value="numCrit"><span>Numbers</span><br>
+          <input type="checkbox" id="specCrit" name="SpecCase" value="specCrit"><span>Special Chracters</span><br>
+        </article>
+
+          <button id="charSelect" class="btn">Generate Password</button>
+      </card>
+    </article>
     <script src="script.js"></script>
   </body>
 </html>
