@@ -24,33 +24,42 @@ var criteriaBtn = document.querySelector("#charSelect");
 
 
 // Functions
-function submitLength() {
-  var passLength = document.getElementById("passLength").value;
-  console.log(passLength);
-  if(passLength <= 7 || passLength >= 129) {
-    alert("Invalid Entry! Please input a number between 8-128")
-  } 
-  document.getElementById("card1").style.visibility = "hidden";
-  document.getElementById("card2").style.visibility = "visible";
 
-}
-
-function sumbitCriteria () {
-  var upper = document.getElementById("upperCrit").checked;
-  var lower = document.getElementById("lowerCrit").checked;
-  var numVal = document.getElementById("numCrit").checked;
-  var specVal = document.getElementById("specCrit").checked;
-  console.log(upper);
-  console.log(lower)
-  console.log(numVal);
-  console.log(specVal);  
-  document.getElementById("card2").style.visibility = "hidden";
-}
 
 // Write password to the #password input
 function writePassword() {
+  // Make first prompt (password length) appear
   document.getElementById("card1").style.visibility = "visible";
-  var password = generatePassword();
+  // Add Listeners for prompt buttons
+  lengthBtn.addEventListener("click", submitLength);
+  criteriaBtn.addEventListener("click", sumbitCriteria);
+  // 
+  function submitLength() {
+    var passLength = document.getElementById("passLength").value;
+    console.log(passLength);
+    if(passLength <= 7 || passLength >= 129) {
+      alert("Invalid Entry! Please input a number between 8-128");
+      return;
+    } 
+    document.getElementById("card1").style.visibility = "hidden";
+    document.getElementById("card2").style.visibility = "visible";
+  };
+  function sumbitCriteria () {
+    var upper = document.getElementById("upperCrit").checked;
+    var lower = document.getElementById("lowerCrit").checked;
+    var numVal = document.getElementById("numCrit").checked;
+    var specVal = document.getElementById("specCrit").checked;
+    console.log(upper);
+    console.log(lower)
+    console.log(numVal);
+    console.log(specVal);  
+    document.getElementById("card2").style.visibility = "hidden";
+  };
+  console.log(submitLength);
+  console.log(sumbitCriteria)
+  var password = generatePassword(); {
+    console.log("Password Will be shown here.");
+  }
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -59,5 +68,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-lengthBtn.addEventListener("click", submitLength);
-criteriaBtn.addEventListener("click", sumbitCriteria);
+
