@@ -20,26 +20,36 @@ var generateBtn = document.querySelector("#generate");
 var lengthBtn = document.querySelector("#lenSelect");
 var criteriaBtn = document.querySelector("#charSelect");
 
-// Setting Password Length as euqual to User Input
-var passLength = document.getElementById("passLength").value;
+// Setting Password Length as equal to User Input
 
 
 // Functions
 function submitLength() {
-  document.getElementById("#passLength");
-  if (passLength>=8) {
-    console.log(passLength);
-  } else {
-    console.log("Invalid Entry");
-  }
+  var passLength = document.getElementById("passLength").value;
+  console.log(passLength);
+  if(passLength <= 7 || passLength >= 129) {
+    alert("Invalid Entry! Please input a number between 8-128")
+  } 
+  document.getElementById("card1").style.visibility = "hidden";
+  document.getElementById("card2").style.visibility = "visible";
+
 }
 
 function sumbitCriteria () {
-
+  var upper = document.getElementById("upperCrit").checked;
+  var lower = document.getElementById("lowerCrit").checked;
+  var numVal = document.getElementById("numCrit").checked;
+  var specVal = document.getElementById("specCrit").checked;
+  console.log(upper);
+  console.log(lower)
+  console.log(numVal);
+  console.log(specVal);  
+  document.getElementById("card2").style.visibility = "hidden";
 }
 
 // Write password to the #password input
 function writePassword() {
+  document.getElementById("card1").style.visibility = "visible";
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 

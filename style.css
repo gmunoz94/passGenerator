@@ -137,16 +137,18 @@ card {
   flex-direction: column;
 }
 
-.passlength{
+.lengthDiv {
   width: 300px;
   left: -150px;
+  top: 190px;
+  visibility: hidden;
 }
 
 .passCriteria {
   width: 400px;
   top: 190px;
   left: -200px;
-  display: none;
+  visibility: hidden;
 }
 
 .critBox {

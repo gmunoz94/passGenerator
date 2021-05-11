@@ -30,19 +30,19 @@
       </div>
     </div>
     <article class="prompts">
-      <card class="lengthDiv">
+      <card class="lengthDiv" id="card1">
         <h3>How many characters will your password be?</h2>
-        <input type="number" id="passLength" name="passLength"><br>
+        <input type="number" id="passLength" name="passLength" placeholder="8-128 Characters"><br>
         <button id="lenSelect" class="btn">Confirm</button>
       </card>
-      <card class="passCriteria">
+      <card class="passCriteria" id="card2">
         <h3>Which characters do you want in you Password?</h3>
         
         <article class="critBox">
-          <input type="checkbox" id="upperCrit" name="UpperCase" value="upperCase"><span>Upper Case Letters</span><br>
-          <input type="checkbox" id="lowerCrit" name="LowerCase" value="lowerCase"><span>Lower Case Letters</span><br>
-          <input type="checkbox" id="numCrit" name="NumCase" value="numCrit"><span>Numbers</span><br>
-          <input type="checkbox" id="specCrit" name="SpecCase" value="specCrit"><span>Special Chracters</span><br>
+          <input type="checkbox" id="upperCrit" name="UpperCase" value="false"><span>Upper Case Letters</span><br>
+          <input type="checkbox" id="lowerCrit" name="LowerCase" value="false"><span>Lower Case Letters</span><br>
+          <input type="checkbox" id="numCrit" name="NumCase"  value="false"><span>Numbers</span><br>
+          <input type="checkbox" id="specCrit" name="SpecCase" value="false"><span>Special Chracters</span><br>
         </article>
 
           <button id="charSelect" class="btn">Generate Password</button>
