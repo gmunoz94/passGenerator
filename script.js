@@ -17,6 +17,26 @@ var specRand = special[Math.floor(Math.random()*special.length)];
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var lengthBtn = document.querySelector("#lenSelect");
+var criteriaBtn = document.querySelector("#charSelect");
+
+// Setting Password Length as euqual to User Input
+var passLength = document.getElementById("passLength").value;
+
+
+// Functions
+function submitLength() {
+  document.getElementById("#passLength");
+  if (passLength>=8) {
+    console.log(passLength);
+  } else {
+    console.log("Invalid Entry");
+  }
+}
+
+function sumbitCriteria () {
+
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -29,3 +49,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+lengthBtn.addEventListener("click", submitLength);
+criteriaBtn.addEventListener("click", sumbitCriteria);
