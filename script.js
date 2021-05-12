@@ -25,7 +25,7 @@ var criteriaBtn = document.querySelector("#charSelect");
 
 // Functions
 function submitLength() {
-  var passLength = document.getElementById("passLength").value;
+  passLength = document.getElementById("passLength").value;
   console.log(passLength);
   if(passLength <= 7 || passLength >= 129) {
     alert("Invalid Entry! Please input a number between 8-128")
@@ -36,10 +36,10 @@ function submitLength() {
 }
 
 function sumbitCriteria () {
-  var upper = document.getElementById("upperCrit").checked;
-  var lower = document.getElementById("lowerCrit").checked;
-  var numVal = document.getElementById("numCrit").checked;
-  var specVal = document.getElementById("specCrit").checked;
+  upper = document.getElementById("upperCrit").checked;
+  lower = document.getElementById("lowerCrit").checked;
+  numVal = document.getElementById("numCrit").checked;
+  specVal = document.getElementById("specCrit").checked;
   console.log(upper);
   console.log(lower)
   console.log(numVal);
@@ -47,10 +47,24 @@ function sumbitCriteria () {
   document.getElementById("card2").style.visibility = "hidden";
 }
 
+function generatePassword() {
+
+  for (var i = 0; i < passLength.length; i++) {
+    var capRand = capital[Math.floor(Math.random()*capital.length)];
+    var lowRand = lower[Math.floor(Math.random()*lower.length)];
+    var numRand = number[Math.floor(Math.random()*number.length)];
+    var specRand = special[Math.floor(Math.random()*special.length)];
+    if (upper === true || lower === true || numVal === true || specVal === true) {
+      
+    }
+  }
+}
+
 // Write password to the #password input
 function writePassword() {
   document.getElementById("card1").style.visibility = "visible";
-  var password = generatePassword();
+  var password = generatePassword()
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -61,3 +75,4 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 lengthBtn.addEventListener("click", submitLength);
 criteriaBtn.addEventListener("click", sumbitCriteria);
+
