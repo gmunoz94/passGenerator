@@ -15,3 +15,6 @@ When you press "Generate Password" you will be prompted to select Password Crite
 
 Once you select your password criteria, a password will be generated for you.
 *Note: Password length must be between 8-128 Characters*
+
+Once your password has been generated you may also choose to copy your password by clicking the "Copy Password" button and it will be added to your clipboard.
+
