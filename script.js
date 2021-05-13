@@ -28,7 +28,7 @@ function writePassword() {
 function submitLength() {
   passLength = document.getElementById("passLength").value;
   // Logs password Length (for checking funtionality)
-  console.log(passLength);
+  // console.log(passLength);
   // Checks to make sure length is between 8-128 characters
   if(passLength <= 7 || passLength >= 129) {
     alert("Invalid Entry! Please input a number between 8-128");
@@ -47,26 +47,26 @@ function sumbitCriteria () {
   numVal = document.getElementById("numCrit").checked;
   specVal = document.getElementById("specCrit").checked;
   // Logs password Criteria Selection (for checking funtionality)
-  console.log(upper);
-  console.log(lower)
-  console.log(numVal);
-  console.log(specVal);
+  // console.log(upper);
+  // console.log(lower)
+  // console.log(numVal);
+  // console.log(specVal);
   // Hides Criteria Prompt
   document.getElementById("card2").style.visibility = "hidden";
   // Multiple checks to see which criteria is chosen and creates an array accordingly
   if (upper === true && lower === true && numVal === true && specVal === true) {
      passArray = [0,1,2,3]
-    console.log(passArray);
+    // console.log(passArray);
   } else if (upper === true && lower === true && numVal === true && specVal === false) {
     passArray = [0,1,2]
-    console.log(passArray);
+    // console.log(passArray);
   } else if (upper === true && lower === true && numVal === false && specVal === false) {
     passArray = [0,1]
     alert ("This password is not Secure!");
-    console.log(passArray);
+    // console.log(passArray);
   } else if (upper === true && lower === true && numVal === false && specVal === true) {
     passArray = [0,1,3]
-    console.log(passArray);
+    // console.log(passArray);
   } else {
     alert ("Password must contain at least an Upper and Lower case!")
     document.getElementById("card2").style.visibility = "visible";  
@@ -79,10 +79,10 @@ var basePass = [];
 function getBase() {
   for (var i = 0; i < passLength; i++) {
     passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
-    console.log(passLengthArray);
+    // console.log(passLengthArray);
     basePass.push(passLengthArray);
     }
-    console.log(basePass);
+    // console.log(basePass);
     getPass();
 }
 
@@ -98,23 +98,23 @@ function getPass() {
   for (var i = 0; i < passLength; i++) {
     if (basePass[i] == 0) {
       capRand = capital[Math.floor(Math.random()*capital.length)];
-      console.log(capRand);
+      // console.log(capRand);
       newPass.push(capRand);
     } else if (basePass[i] == 1) {
       lowRand = lowerCase[Math.floor(Math.random()*lowerCase.length)];
-      console.log(lowRand);
+      // console.log(lowRand);
       newPass.push(lowRand);
     } else if (basePass[i] == 2) {
       numRand = number[Math.floor(Math.random()*number.length)];
-      console.log(numRand);
+      // console.log(numRand);
       newPass.push(numRand);
     } else if (basePass[i] == 3) {
       specRand = special[Math.floor(Math.random()*special.length)];
-      console.log(specRand);
+      // console.log(specRand);
       newPass.push(specRand);
     }
   }
-  console.log(newPass);
+  // console.log(newPass);
   showPassword();
 }
 
