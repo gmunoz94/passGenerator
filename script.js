@@ -104,19 +104,25 @@ function getPass() {
     }
   }
   console.log(newPass);
-
+  showPassword();
 }
 
-// Function to write Password to index.html file
+function showPassword(){    
+  var password = newPass.join('');
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+  basePass = [];
+  newPass = [];
+}
 
 // Write password to the #password input
 function writePassword() {
-  // Make first prompt (password length) appear
-  document.getElementById("card1").style.visibility = "visible";
-  // Add Listeners for prompt buttons
-  lengthBtn.addEventListener("click", submitLength);
-  criteriaBtn.addEventListener("click", sumbitCriteria);
+// Make first prompt (password length) appear
+document.getElementById("card1").style.visibility = "visible";
+// Add Listeners for prompt buttons
+lengthBtn.addEventListener("click", submitLength);
+criteriaBtn.addEventListener("click", sumbitCriteria);
 }
 
 // Add event listener to generate button
