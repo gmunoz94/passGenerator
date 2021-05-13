@@ -65,6 +65,7 @@ function sumbitCriteria () {
   }
 };
 
+<<<<<<< HEAD
 function getBase() {
   var basePass = [];
   for (var i = 0; i < passLength; i++) {
@@ -72,6 +73,19 @@ function getBase() {
     basePass.push(passLengthArray);
     }
     console.log(basePass);
+=======
+function generatePassword() {
+
+  for (var i = 0; i < passLength.length; i++) {
+    var capRand = capital[Math.floor(Math.random()*capital.length)];
+    var lowRand = lower[Math.floor(Math.random()*lower.length)];
+    var numRand = number[Math.floor(Math.random()*number.length)];
+    var specRand = special[Math.floor(Math.random()*special.length)];
+    if (upper === true || lower === true || numVal === true || specVal === true) {
+      
+    }
+  }
+>>>>>>> 8739903b13d219d8a8e032fb7a7ef187315bb969
 }
 
 // Write password to the #password input
