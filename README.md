@@ -19,5 +19,5 @@ Once you select your password criteria, a password will be generated for you.
 Once your password has been generated you may also choose to copy your password by clicking the "Copy Password" button and it will be added to your clipboard.
 
 # Links and Screenshot
-
+[Live URL](https://gmunoz94.github.io/passGenerator/)
 ![Screenshot (4)](https://user-images.githubusercontent.com/78816702/118164582-e1fa6480-b3e8-11eb-8ca6-1c10a49f7764.png)
