@@ -4,6 +4,7 @@ var lower = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','
 var number = [1,2,3,4,5,6,7,8,9,0]
 var special = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.',':',';','<','=','>','?','@','[',']','^','_','`','{','}','|','~']
 
+
 // Need to prompt user with choices of 'Password Length' and the ability to select if Special Characters, Numbers, Lower Case, and Upper case letters are desired. 
 // Need to tailor function depending on user input
 // Need to choose random item from random array (within chosen selections)
@@ -24,46 +25,74 @@ var criteriaBtn = document.querySelector("#charSelect");
 
 
 // Functions
+function submitLength() {
+  passLength = document.getElementById("passLength").value;
+  console.log(passLength);
+  if(passLength <= 7 || passLength >= 129) {
+    alert("Invalid Entry! Please input a number between 8-128");
+    return;
+  } 
+  document.getElementById("card1").style.visibility = "hidden";
+  document.getElementById("card2").style.visibility = "visible";
+};
 
+function sumbitCriteria () {
+  upper = document.getElementById("upperCrit").checked;
+  lower = document.getElementById("lowerCrit").checked;
+  numVal = document.getElementById("numCrit").checked;
+  specVal = document.getElementById("specCrit").checked;
+  console.log(upper);
+  console.log(lower)
+  console.log(numVal);
+  console.log(specVal);
+  document.getElementById("card2").style.visibility = "hidden";
+  if (upper === true && lower === true && numVal === true && specVal === true) {
+     passArray = ['0','1','2','3']
+    console.log(passArray);
+  } else if (upper === true && lower === true && numVal === true && specVal === false) {
+    passArray = ['0','1','2']
+    console.log(passArray);
+  } else if (upper === true && lower === true && numVal === false && specVal === false) {
+    passArray = ['0','1']
+    alert ("This password is not Secure!");
+    console.log(passArray);
+  } else if (upper === true && lower === true && numVal === false && specVal === true) {
+    passArray = ['0','1','3']
+    console.log(passArray);
+  } else {
+    alert ("Password must contain at least an Upper and Lower case!")
+    document.getElementById("card2").style.visibility = "visible";  
+  }
+};
+
+function getBase() {
+  var basePass = [];
+  for (var i = 0; i < passLength; i++) {
+    passLengthArray = passArray[Math.floor(Math.random()*passArray)];
+    basePass.push(passLengthArray);
+    }
+    console.log(basePass);
+}
 
 // Write password to the #password input
 function writePassword() {
-  // Make first prompt (password length) appear
-  document.getElementById("card1").style.visibility = "visible";
-  // Add Listeners for prompt buttons
-  lengthBtn.addEventListener("click", submitLength);
-  criteriaBtn.addEventListener("click", sumbitCriteria);
-  // 
-  function submitLength() {
-    var passLength = document.getElementById("passLength").value;
-    console.log(passLength);
-    if(passLength <= 7 || passLength >= 129) {
-      alert("Invalid Entry! Please input a number between 8-128");
-      return;
-    } 
-    document.getElementById("card1").style.visibility = "hidden";
-    document.getElementById("card2").style.visibility = "visible";
-  };
-  function sumbitCriteria () {
-    var upper = document.getElementById("upperCrit").checked;
-    var lower = document.getElementById("lowerCrit").checked;
-    var numVal = document.getElementById("numCrit").checked;
-    var specVal = document.getElementById("specCrit").checked;
-    console.log(upper);
-    console.log(lower)
-    console.log(numVal);
-    console.log(specVal);  
-    document.getElementById("card2").style.visibility = "hidden";
-  };
-  console.log(submitLength);
-  console.log(sumbitCriteria)
+// Make first prompt (password length) appear
+document.getElementById("card1").style.visibility = "visible";
+// Add Listeners for prompt buttons
+lengthBtn.addEventListener("click", submitLength);
+criteriaBtn.addEventListener("click", sumbitCriteria);
+
   var password = generatePassword(); {
-    console.log("Password Will be shown here.");
+    for (var i = 0; i < passLength; i++) {
+      
+    }
+    if (upper == true) {
+      var capRand = capital[Math.floor(Math.random()*capital.length)];
+    }
   }
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
