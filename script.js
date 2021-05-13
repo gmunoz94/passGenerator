@@ -8,9 +8,20 @@
 var generateBtn = document.querySelector("#generate");
 var lengthBtn = document.querySelector("#lenSelect");
 var criteriaBtn = document.querySelector("#charSelect");
+var copybtn = document.querySelector("#copyPass");
 
-// Setting Password Length as equal to User Input
+// Add event listener to generate and copy button
+generateBtn.addEventListener("click", writePassword);
+copybtn.addEventListener("click", copyPass);
 
+// Write password to the #password input
+function writePassword() {
+  // Make first prompt (password length) appear
+  document.getElementById("card1").style.visibility = "visible";
+  // Add Listeners for prompt buttons
+  lengthBtn.addEventListener("click", submitLength);
+  criteriaBtn.addEventListener("click", sumbitCriteria);
+}
 
 // Functions
 // Getting the Password Length
@@ -107,6 +118,7 @@ function getPass() {
   showPassword();
 }
 
+// Function to display text on Screen
 function showPassword(){    
   var password = newPass.join('');
   var passwordText = document.querySelector("#password");
@@ -116,15 +128,13 @@ function showPassword(){
   newPass = [];
 }
 
-// Write password to the #password input
-function writePassword() {
-// Make first prompt (password length) appear
-document.getElementById("card1").style.visibility = "visible";
-// Add Listeners for prompt buttons
-lengthBtn.addEventListener("click", submitLength);
-criteriaBtn.addEventListener("click", sumbitCriteria);
+// Function to allow password to be copied to user's clipboard
+function copyPass() {
+  var copyText = document.getElementById("password");
+
+  copyText.select();
+
+  document.execCommand("copy");
+
+  alert("Your password has been copied")
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
