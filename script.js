@@ -47,17 +47,17 @@ function sumbitCriteria () {
   console.log(specVal);
   document.getElementById("card2").style.visibility = "hidden";
   if (upper === true && lower === true && numVal === true && specVal === true) {
-     passArray = ['0','1','2','3']
+     passArray = [0,1,2,3]
     console.log(passArray);
   } else if (upper === true && lower === true && numVal === true && specVal === false) {
-    passArray = ['0','1','2']
+    passArray = [0,1,2]
     console.log(passArray);
   } else if (upper === true && lower === true && numVal === false && specVal === false) {
-    passArray = ['0','1']
+    passArray = [0,1]
     alert ("This password is not Secure!");
     console.log(passArray);
   } else if (upper === true && lower === true && numVal === false && specVal === true) {
-    passArray = ['0','1','3']
+    passArray = [0,1,3]
     console.log(passArray);
   } else {
     alert ("Password must contain at least an Upper and Lower case!")
@@ -65,27 +65,23 @@ function sumbitCriteria () {
   }
 };
 
-<<<<<<< HEAD
 function getBase() {
   var basePass = [];
   for (var i = 0; i < passLength; i++) {
-    passLengthArray = passArray[Math.floor(Math.random()*passArray)];
+    passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
+    console.log(passLengthArray);
     basePass.push(passLengthArray);
     }
     console.log(basePass);
-=======
-function generatePassword() {
+}
 
-  for (var i = 0; i < passLength.length; i++) {
-    var capRand = capital[Math.floor(Math.random()*capital.length)];
-    var lowRand = lower[Math.floor(Math.random()*lower.length)];
-    var numRand = number[Math.floor(Math.random()*number.length)];
-    var specRand = special[Math.floor(Math.random()*special.length)];
-    if (upper === true || lower === true || numVal === true || specVal === true) {
-      
+function getPass() {
+  
+  for (var i = 0; i < passLength; i++) {
+    if(i == 0) {
+
     }
   }
->>>>>>> 8739903b13d219d8a8e032fb7a7ef187315bb969
 }
 
 // Write password to the #password input
