@@ -60,6 +60,7 @@ function sumbitCriteria () {
     alert ("Password must contain at least an Upper and Lower case!")
     document.getElementById("card2").style.visibility = "visible";  
   }
+  getBase();
 };
 
 // Declare array to put base of password in
@@ -71,58 +72,51 @@ function getBase() {
     basePass.push(passLengthArray);
     }
     console.log(basePass);
+    getPass();
 }
 
 // Arrays for Password Generator
 capital = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-lower = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-number = [1,2,3,4,5,6,7,8,9,0]
+lowerCase = ['a', 'b', 'c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+number = ['1','2','3','4','5','6','7','8','9','0']
 special = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.',':',';','<','=','>','?','@','[',']','^','_','`','{','}','|','~']
 
 // Declare Array to put password in
 var newPass = [];
 function getPass() {
   for (var i = 0; i < passLength; i++) {
-    if (basePass == 0) {
+    if (basePass[i] == 0) {
       capRand = capital[Math.floor(Math.random()*capital.length)];
       console.log(capRand);
       newPass.push(capRand);
-    } else if (basePass == 1) {
-      lowRand = lower[Math.floor(Math.random()*lower.length)];
+    } else if (basePass[i] == 1) {
+      lowRand = lowerCase[Math.floor(Math.random()*lowerCase.length)];
       console.log(lowRand);
       newPass.push(lowRand);
-    } else if (basePass == 2) {
+    } else if (basePass[i] == 2) {
       numRand = number[Math.floor(Math.random()*number.length)];
       console.log(numRand);
       newPass.push(numRand);
-    } else if (basePass == 3) {
+    } else if (basePass[i] == 3) {
       specRand = special[Math.floor(Math.random()*special.length)];
       console.log(specRand);
       newPass.push(specRand);
     }
   }
   console.log(newPass);
+
 }
+
+// Function to write Password to index.html file
+
 
 // Write password to the #password input
 function writePassword() {
-// Make first prompt (password length) appear
-document.getElementById("card1").style.visibility = "visible";
-// Add Listeners for prompt buttons
-lengthBtn.addEventListener("click", submitLength);
-criteriaBtn.addEventListener("click", sumbitCriteria);
-
-  var password = generatePassword(); {
-    for (var i = 0; i < passLength; i++) {
-      
-    }
-    if (upper == true) {
-      var capRand = capital[Math.floor(Math.random()*capital.length)];
-    }
-  }
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  // Make first prompt (password length) appear
+  document.getElementById("card1").style.visibility = "visible";
+  // Add Listeners for prompt buttons
+  lengthBtn.addEventListener("click", submitLength);
+  criteriaBtn.addEventListener("click", sumbitCriteria);
 }
 
 // Add event listener to generate button
