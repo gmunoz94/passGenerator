@@ -9,10 +9,13 @@ var generateBtn = document.querySelector("#generate");
 var lengthBtn = document.querySelector("#lenSelect");
 var criteriaBtn = document.querySelector("#charSelect");
 var copybtn = document.querySelector("#copyPass");
+var shuffleBtn = document.querySelector("#shuffle");
 
-// Add event listener to generate and copy button
+// Add event listener to generate, copy, and shuffle button
 generateBtn.addEventListener("click", writePassword);
 copybtn.addEventListener("click", copyPass);
+shuffleBtn.addEventListener("click", shufflePass);
+
 
 // Write password to the #password input
 function writePassword() {
@@ -57,34 +60,86 @@ function sumbitCriteria () {
   if (upper === true && lower === true && numVal === true && specVal === true) {
      passArray = [0,1,2,3]
     // console.log(passArray);
+    getBase1();
   } else if (upper === true && lower === true && numVal === true && specVal === false) {
     passArray = [0,1,2]
     // console.log(passArray);
+    getBase2();
   } else if (upper === true && lower === true && numVal === false && specVal === false) {
     passArray = [0,1]
     alert ("This password is not Secure!");
     // console.log(passArray);
+    getBase3();
   } else if (upper === true && lower === true && numVal === false && specVal === true) {
     passArray = [0,1,3]
     // console.log(passArray);
+    getBase4();
   } else {
     alert ("Password must contain at least an Upper and Lower case!")
     document.getElementById("card2").style.visibility = "visible";  
   }
-  getBase();
 };
 
 // Declare array to put base of password in
 var basePass = [];
-function getBase() {
-  for (var i = 0; i < passLength; i++) {
+function getBase1() {
+  basePass.push(0);
+  basePass.push(1);
+  basePass.push(2);
+  basePass.push(3);
+  for (var i = 4; i < passLength; i++) {
     passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
     // console.log(passLengthArray);
     basePass.push(passLengthArray);
     }
     // console.log(basePass);
+    basePass = basePass.sort(() => Math.random() - 0.5);
     getPass();
 }
+
+function getBase2() {
+  basePass.push(0);
+  basePass.push(1);
+  basePass.push(2);
+  for (var i = 3; i < passLength; i++) {
+    passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
+    // console.log(passLengthArray);
+    basePass.push(passLengthArray);
+    }
+    // console.log(basePass);
+    basePass = basePass.sort(() => Math.random() - 0.5);
+    getPass();
+}
+
+function getBase3() {
+  basePass.push(0);
+  basePass.push(1);
+  for (var i = 2; i < passLength; i++) {
+    passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
+    // console.log(passLengthArray);
+    basePass.push(passLengthArray);
+    }
+    // console.log(basePass);
+    basePass = basePass.sort(() => Math.random() - 0.5);
+    getPass();
+}
+
+function getBase4() {
+  basePass.push(0);
+  basePass.push(1);
+  basePass.push(3);
+  for (var i = 3; i < passLength; i++) {
+    passLengthArray = passArray[Math.floor(Math.random()*passArray.length)];
+    // console.log(passLengthArray);
+    basePass.push(passLengthArray);
+    }
+    // console.log(basePass);
+    basePass = basePass.sort(() => Math.random() - 0.5);
+    getPass();
+}
+
+
+
 
 // Arrays for Password Generator
 capital = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -131,10 +186,12 @@ function showPassword(){
 // Function to allow password to be copied to user's clipboard
 function copyPass() {
   var copyText = document.getElementById("password");
-
   copyText.select();
-
   document.execCommand("copy");
-
   alert("Your password has been copied")
+}
+
+// Function to shuffle password with existing selections
+function shufflePass() {
+  sumbitCriteria();
 }
